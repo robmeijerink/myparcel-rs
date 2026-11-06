@@ -69,7 +69,7 @@ impl DpopKey {
     }
 
     fn coordinates(&self) -> (String, String) {
-        let point = self.0.verifying_key().to_encoded_point(false);
+        let point = self.0.verifying_key().to_sec1_point(false);
         let x = point.x().expect("an uncompressed point has x");
         let y = point.y().expect("an uncompressed point has y");
         (base64url(x), base64url(y))

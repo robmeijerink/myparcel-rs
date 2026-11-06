@@ -2,7 +2,7 @@
 name = "myparcel-rs"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.87"
+rust-version = "1.88"
 description = "Unofficial async client for the MyParcel API"
 license = "MIT"
 repository = "https://github.com/robmeijerink/myparcel-rs"
@@ -22,7 +22,7 @@ connect = ["dep:aes-gcm", "dep:p256", "dep:sha2", "dep:subtle"]
 aes-gcm = { version = "0.11", optional = true }
 base64 = "0.23"
 getrandom = "0.4"
-p256 = { version = "0.13", optional = true, features = ["ecdsa", "pem", "jwk"] }
+p256 = { version = "0.14", optional = true, features = ["ecdsa", "pem"] }
 reqwest = { version = "0.12", default-features = false }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
