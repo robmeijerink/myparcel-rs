@@ -37,7 +37,9 @@ string_enum! {
 
 /// The secret that protects the private key and the token in storage.
 ///
-/// Keep it apart from the storage itself, for example in a secret manager.
+/// Keep it apart from the storage itself, for example in a secret manager. It is hashed once with
+/// SHA-256 to make the encryption key, without any stretching, so use a long random secret and not
+/// a password a person chose.
 #[derive(Clone)]
 pub struct EncryptionKey(Zeroizing<String>);
 

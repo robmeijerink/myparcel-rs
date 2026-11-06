@@ -103,13 +103,28 @@ impl fmt::Debug for AccessToken {
 }
 
 /// The query MyParcel redirects the merchant back with.
-#[derive(Debug, Clone, Default, PartialEq, Eq)]
+///
+/// `Debug` shows which parameters are present, not their values: the code is a credential until
+/// it is exchanged.
+#[derive(Clone, Default, PartialEq, Eq)]
 pub struct CallbackQuery {
     nonce: Option<String>,
     code: Option<String>,
     htm: Option<String>,
     htu: Option<String>,
     error: Option<String>,
+}
+
+impl fmt::Debug for CallbackQuery {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("CallbackQuery")
+            .field("nonce", &self.nonce.is_some())
+            .field("code", &self.code.is_some())
+            .field("htm", &self.htm)
+            .field("htu", &self.htu)
+            .field("error", &self.error)
+            .finish()
+    }
 }
 
 impl CallbackQuery {
@@ -380,6 +395,17 @@ mod tests {
                 "{bad}"
             );
         }
+    }
+
+    #[test]
+    fn debug_hides_the_code_and_the_nonce() {
+        let query = CallbackQuery::from_query_string("code=SECRETCODE&nonce=SECRETNONCE&htm=POST");
+        let shown = format!("{query:?}");
+        assert!(
+            !shown.contains("SECRETCODE") && !shown.contains("SECRETNONCE"),
+            "{shown}"
+        );
+        assert!(shown.contains("POST"));
     }
 
     #[test]

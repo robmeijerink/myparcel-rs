@@ -177,10 +177,10 @@ impl Operation for Pdf {
     }
 
     fn parse(&self, response: Response) -> Result<Self::Output> {
-        if response.status == 402 {
-            if let Some(error) = payment_required(&response.body) {
-                return Err(error);
-            }
+        if response.status == 402
+            && let Some(error) = payment_required(&response.body)
+        {
+            return Err(error);
         }
         let response = response.ensure_success()?;
         let is_pdf = response.body.starts_with(b"%PDF-")
@@ -232,10 +232,10 @@ impl Operation for Link {
             url: String,
         }
 
-        if response.status == 402 {
-            if let Some(error) = payment_required(&response.body) {
-                return Err(error);
-            }
+        if response.status == 402
+            && let Some(error) = payment_required(&response.body)
+        {
+            return Err(error);
         }
         let response = response.ensure_success()?;
         let envelope: Envelope = response.json()?;
