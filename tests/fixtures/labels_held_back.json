@@ -1,0 +1,1 @@
+{"data":{"shipments":{"unpaid_shipments":[{"shipment_id":1,"price":{"currency":"EUR","amount":500},"price_after_vat":{"currency":"EUR","amount":605}}],"blocked_shipments":[{"shipment_id":2,"price":{"currency":"EUR","amount":0},"price_after_vat":{"currency":"EUR","amount":0}}]}}}

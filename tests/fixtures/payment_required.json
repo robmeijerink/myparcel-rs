@@ -1,0 +1,1 @@
+{"data":{"payment_instructions":[{"id":"p1","hash":"h","type":1,"notification_hash":"n","original_notification_hash":"o","paid":0,"price":{"amount":500,"currency":"EUR"},"payment_url":"https://pay.example/p1","invoices":{"id":1,"number":"I-1","status":0}}]}}

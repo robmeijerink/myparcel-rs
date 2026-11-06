@@ -1,0 +1,101 @@
+{
+ "results": [
+  {
+   "carrier": "POSTNL",
+   "contract": {
+    "id": 5,
+    "type": "MAIN"
+   },
+   "packageTypes": [
+    "PACKAGE",
+    "MAILBOX"
+   ],
+   "deliveryTypes": [
+    "STANDARD_DELIVERY",
+    "MORNING_DELIVERY"
+   ],
+   "transactionTypes": [
+    "B2C"
+   ],
+   "collo": {
+    "max": 3
+   },
+   "options": {
+    "requiresSignature": {
+     "isSelectedByDefault": false,
+     "isRequired": false,
+     "requires": [
+      "recipientOnlyDelivery"
+     ],
+     "excludes": []
+    },
+    "tracked": {
+     "isSelectedByDefault": true,
+     "isRequired": true,
+     "requires": [],
+     "excludes": []
+    },
+    "insurance": {
+     "isSelectedByDefault": false,
+     "isRequired": false,
+     "requires": [],
+     "excludes": [],
+     "insuredAmount": {
+      "default": {
+       "currency": "EUR",
+       "amount": 10000
+      },
+      "min": {
+       "currency": "EUR",
+       "amount": 5000
+      },
+      "max": {
+       "currency": "EUR",
+       "amount": 500000
+      }
+     },
+     "default": {
+      "currency": "EUR",
+      "amount": 0
+     },
+     "min": {
+      "currency": "EUR",
+      "amount": 0
+     },
+     "max": {
+      "currency": "EUR",
+      "amount": 500000
+     }
+    }
+   },
+   "physicalProperties": {
+    "weight": {
+     "min": {
+      "value": 1,
+      "unit": "g"
+     },
+     "max": {
+      "value": 23000,
+      "unit": "g"
+     },
+     "calculation": "gross"
+    }
+   }
+  },
+  {
+   "carrier": "DPD",
+   "packageTypes": [
+    "PALLET"
+   ],
+   "deliveryTypes": [],
+   "transactionTypes": [
+    "B2B"
+   ],
+   "collo": {
+    "max": 10
+   },
+   "options": {},
+   "physicalProperties": {}
+  }
+ ]
+}

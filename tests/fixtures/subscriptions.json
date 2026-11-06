@@ -1,0 +1,1 @@
+{"data":{"webhook_subscriptions":[{"id":9,"account_id":1,"shop_id":2,"hook":"shipment_status_change","url":"https://example.com/hook","payload":null},{"id":10,"account_id":1,"shop_id":2,"hook":"brand_new_hook","url":"https://example.com/other"}]}}

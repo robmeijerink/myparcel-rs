@@ -1,0 +1,18 @@
+{
+ "results": [
+  {
+   "carrier": "BRAND_NEW",
+   "packageTypes": [
+    "PALLET"
+   ],
+   "deliveryTypes": [],
+   "transactionTypes": [
+    "B2B"
+   ],
+   "collo": {
+    "max": 10
+   },
+   "options": {}
+  }
+ ]
+}
