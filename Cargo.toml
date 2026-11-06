@@ -19,14 +19,14 @@ blocking = ["reqwest/blocking"]
 connect = ["dep:aes-gcm", "dep:p256", "dep:sha2", "dep:subtle"]
 
 [dependencies]
-aes-gcm = { version = "0.10", optional = true }
-base64 = "0.22"
-getrandom = "0.3"
+aes-gcm = { version = "0.11", optional = true }
+base64 = "0.23"
+getrandom = "0.4"
 p256 = { version = "0.13", optional = true, features = ["ecdsa", "pem", "jwk"] }
 reqwest = { version = "0.12", default-features = false }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-sha2 = { version = "0.10", optional = true }
+sha2 = { version = "0.11", optional = true }
 subtle = { version = "2", optional = true }
 thiserror = "2"
 time = { version = "0.3", features = ["formatting", "parsing", "macros", "serde", "serde-well-known"] }
@@ -34,7 +34,7 @@ url = { version = "2", features = ["serde"] }
 zeroize = { version = "1", features = ["serde"] }
 
 [dev-dependencies]
-jsonschema = "0.30"
+jsonschema = "0.60"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 wiremock = "0.6"
 
