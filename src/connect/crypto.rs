@@ -1,4 +1,4 @@
-use aes_gcm::aead::AeadInPlace;
+use aes_gcm::aead::AeadInOut;
 use aes_gcm::{Aes256Gcm, KeyInit, Nonce, Tag};
 use base64::Engine;
 use base64::engine::general_purpose::{STANDARD, URL_SAFE_NO_PAD};
@@ -143,7 +143,11 @@ impl Cipher {
         let mut buffer = Zeroizing::new(plaintext.to_vec());
         let tag = self
             .aes()
-            .encrypt_in_place_detached(&Nonce::from(iv), &[FORMAT_VERSION], &mut buffer)
+            .encrypt_inout_detached(
+                &Nonce::from(iv),
+                &[FORMAT_VERSION],
+                buffer.as_mut_slice().into(),
+            )
             .map_err(|_| ConnectError::Encryption)?;
         let mut out = Vec::with_capacity(MIN_CIPHERTEXT_LEN + buffer.len());
         out.push(FORMAT_VERSION);
@@ -166,10 +170,10 @@ impl Cipher {
         let tag: [u8; TAG_LEN] = tag.try_into().map_err(|_| ConnectError::Decryption)?;
         let mut buffer = Zeroizing::new(ciphertext.to_vec());
         self.aes()
-            .decrypt_in_place_detached(
+            .decrypt_inout_detached(
                 &Nonce::from(iv),
                 &[FORMAT_VERSION],
-                &mut buffer,
+                buffer.as_mut_slice().into(),
                 &Tag::from(tag),
             )
             .map_err(|_| ConnectError::Decryption)?;

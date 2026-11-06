@@ -162,7 +162,7 @@ Connect covers pushing orders. Everything else needs an API key. There is no rev
 | `blocking` | no | The blocking client |
 | `connect` | no | MyParcel Connect and order push |
 
-Use `default-features = false, features = ["native-tls"]` to switch TLS backends. The minimum supported Rust version is 1.85.
+Use `default-features = false, features = ["native-tls"]` to switch TLS backends. The minimum supported Rust version is 1.87.
 
 ## What is not included
 

@@ -27,7 +27,7 @@ pub fn assert_valid(document: &Value, schema: &str, instance: &Value) {
     let validator = validator(document, schema);
     let errors: Vec<String> = validator
         .iter_errors(instance)
-        .map(|error| format!("{error} at {}", error.instance_path))
+        .map(|error| format!("{error} at {}", error.instance_path()))
         .collect();
     assert!(
         errors.is_empty(),
@@ -45,7 +45,7 @@ pub fn assert_valid_inline(document: &Value, schema: &Value, instance: &Value) {
     let validator = jsonschema::validator_for(&root).expect("the schema compiles");
     let errors: Vec<String> = validator
         .iter_errors(instance)
-        .map(|error| format!("{error} at {}", error.instance_path))
+        .map(|error| format!("{error} at {}", error.instance_path()))
         .collect();
     assert!(
         errors.is_empty(),
