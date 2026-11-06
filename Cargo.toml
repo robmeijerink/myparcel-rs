@@ -9,7 +9,7 @@ repository = "https://github.com/robmeijerink/myparcel-rs"
 readme = "README.md"
 keywords = ["myparcel", "shipping", "labels", "api-client"]
 categories = ["api-bindings", "web-programming::http-client"]
-exclude = [".github", "tests/spec"]
+exclude = [".github", "tests"]
 
 [features]
 default = ["rustls-tls"]
