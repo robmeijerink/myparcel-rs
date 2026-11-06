@@ -12,6 +12,8 @@ myparcel-rs = "0.1"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
+The full API documentation is on [docs.rs](https://docs.rs/myparcel-rs).
+
 ## Usage
 
 ```rust
