@@ -8,7 +8,7 @@ It covers shipments, labels, track and trace, return shipments, multi-collo, web
 
 ```toml
 [dependencies]
-myparcel-rs = "0.1"
+myparcel-rs = "0.2"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
