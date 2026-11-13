@@ -184,7 +184,7 @@ The tests run against a mock server. Next to them, the specification of MyParcel
 MYPARCEL_API_KEY=... cargo test --test live -- --ignored
 ```
 
-The crate does not read a `.env` file itself. Copy `.env.example` to `.env`, fill it in and load it into your shell first: `set -a; source .env; set +a`.
+The live test also reads a `.env` file: copy `.env.example` to `.env` and fill in the key. The crate itself never reads one.
 
 ## Supported API versions
 

@@ -1,6 +1,6 @@
 //! Runs against the real API with a throwaway concept shipment.
 //!
-//! `MYPARCEL_API_KEY=... cargo test --test live -- --ignored`
+//! `MYPARCEL_API_KEY=... cargo test --test live -- --ignored`, or put the key in a `.env` file.
 
 use myparcel_rs::country::CountryCode;
 use myparcel_rs::enums::{Carrier, PackageType, ShipmentStatus};
@@ -14,6 +14,7 @@ use myparcel_rs::{ApiKey, Client, Reported};
 #[tokio::test]
 #[ignore = "needs MYPARCEL_API_KEY"]
 async fn a_concept_can_be_created_found_and_deleted() {
+    let _ = dotenvy::dotenv();
     let key =
         ApiKey::new(std::env::var("MYPARCEL_API_KEY").expect("MYPARCEL_API_KEY is set")).unwrap();
     let client = Client::new(key).unwrap();
